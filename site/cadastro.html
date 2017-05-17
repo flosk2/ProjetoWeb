@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" /> 
+<title>Minha Consulta</title>
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,800' rel='stylesheet' type='text/css'>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="js/jquery-1.9.1.min.js"></script>
+<!--hover-effect-->
+<script src="js/hover_pack.js"></script>
+<script type="text/javascript" src="js/jquery.mixitup.min.js"></script>
+	<script type="text/javascript">
+	$(function () {
+		
+		var filterList = {
+		
+			init: function () {
+			
+				// MixItUp plugin
+				// http://mixitup.io
+				$('#portfoliolist').mixitup({
+					targetSelector: '.portfolio',
+					filterSelector: '.filter',
+					effects: ['fade'],
+					easing: 'snap',
+					// call the hover effect
+					onMixEnd: filterList.hoverEffect()
+				});				
+			
+			},
+			
+			hoverEffect: function () {
+			
+				// Simple parallax effect
+				$('#portfoliolist .portfolio').hover(
+					function () {
+						$(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
+						$(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');				
+					},
+					function () {
+						$(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
+						$(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');								
+					}		
+				);				
+			
+			}
+
+		};
+		
+		// Run the show!
+		filterList.init();
+		
+		
+	});	
+	</script>
+</head>
+<body>
+	<!--start header-->
+	<div class="header">
+	  <div class="header-top">
+		<div class="container">
+			<div class="logo">
+			  <a href="index.php"><img src="images/logo.png" alt=""/></a>
+			</div>
+			<div class="menu">
+			  <a class="toggleMenu" href="#"><img src="images/nav_icon.png" alt="" /></a>
+				<ul class="nav" id="nav">
+				  
+				  <li><a href="cadastro.html"> Cadastre-se </a></li>
+				<li><a href="login.html"> Entrar </a></li>				  
+				   <div class="clear"></div>
+			    </ul>
+			</div>							
+	        <div class="clear"></div>
+	        <script type="text/javascript" src="js/responsive-nav.js"></script>
+			<script type="text/javascript" src="js/move-top.js"></script>
+			<script type="text/javascript" src="js/easing.js"></script>
+			   <script type="text/javascript">
+					jQuery(document).ready(function($) {
+						$(".scroll").click(function(event){		
+							event.preventDefault();
+							$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+						});
+					});
+				</script>
+		   </div>
+		 </div>
+		 </div>
+	<section class="secao-cadastro">
+	<div class="cadastro">
+	<form method="POST"  >
+	<fieldset id="usuario"> <legend>Cadastro do Usuário</legend>
+	<p><label class="cNome" >Nome:</label><input type="text" name="tNome" id="cNome" size="20" maxlength="30" placeholder="Nome Completo" /> </p>
+	<p><label class="cCPF" >CPF:</label><input type="number" name="tCPF" id="cCPF" size="9" maxlength="9" placeholder="Seu CPF" /> </p>
+    <p> <label class="cSenha" >Senha:</label> <input type="password" name="tSenha" id="cSenha" size="8" maxlength="8" placeholder="8 Digitos" </p>
+    <p><label class="cMail" >E-mail:</label><input type="email" name="tMail" id="cMail" size="20" maxlength="40" placeholder="Digite seu email" </p>
+    <p><label class="sexo">Sexo:</label>
+        <input type="radio" name="tSexo" id="cMasc"  /> <label for="cMasc" >Masculino</label> 
+        <input type="radio" name="tSexo" id="cFem" /> <label for="cFem" >Feminino</label>
+	
+    <p><label class="cNasc" >Data de Nascimento:</label> <input type="date" name="tNasc"  id="cNasc" /></p>
+	<p><label class="cEndereco" >Endereço:</label><input type="text" name="tEndereco" id="cEndereco" size="50" maxlength="50" placeholder="Seu endereço" /></p>
+	<p><label class="cCidade" >Cidade:</label><input type="text" name="tCidade" id="cCidade" size="20" maxlength="20" placeholder="Sua Cidade" /></p>
+    <p><label class="cNum" >Número:</label><input type="number" name="tNum" id="cNum" min="1" max="999" /></p>
+    <p> <label class="cEst" >Estado:</label>
+	<select name="tEst" id="cEst">
+	<optgroup >
+	<option value="AC"> Acre</option>
+	<option value="AL"> Alagoas </option>
+	<option value="AP"> Amapá </option>
+	<option value="AM"> Amazonas </option>
+	<option value="BA"> Bahia </option>
+	<option value="CE"> Ceará </option>
+	<option value="DF"> Distrito Federal </option>
+	<option value="ES"> Espírito Santo </option>
+	<option value="GO"> Goiás </option>
+	<option value="MA"> Maranhão </option>
+	<option value="MT">Mato Grosso </option>
+	<option value="MS"> Mato Grosso do Sul </option>
+	<option value="MG"> Minas Gerais </option>
+	<option value="PA"> Pará </option>
+	<option value="PB"> Paraíba </option>
+	<option value="PR"> Paraná </option>
+	<option value="PE"> Pernambuco </option>
+	<option value="PI"> Piauí </option>
+	<option value="RJ"> Rio de Janeiro </option>
+	<option value="RN"> Rio Grande do Norte </option>
+	<option value="RS"> Rio Grande do Sul </option>
+	<option value="RO"> Rondônia </option>
+	<option value="RR"> Roraima </option>
+	<option value="SC"> Santa Catarina </option>
+	<option value="SP"> São Paulo </option>
+	<option value="SE"> Sergipe </option>
+	<option value="TO"> Tocantins </option>
+	</optgroup>
+	</select>
+	</p>
+	<input type="submit" name="Enviar" id="btEnviar"  />
+	</fieldset>
+	</form>
+	</div>
+	</section>
+	</body>
+	</html>
+	
+	

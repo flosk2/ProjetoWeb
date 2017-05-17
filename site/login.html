@@ -1,4 +1,3 @@
-<!DOCTYPE HTML>
 <html>
 <head>
 <meta charset="utf-8" /> 
@@ -55,22 +54,27 @@
 		filterList.init();
 		
 		
+		
+		
 	});	
 	</script>
 </head>
+ 
 <body>
 	<!--start header-->
 	<div class="header">
 	  <div class="header-top">
 		<div class="container">
 			<div class="logo">
-			  <a href="index.html"><img src="images/logo.png" alt=""/></a>
+			  <a href="index.php"><img src="images/logo.png" alt=""/></a>
 			</div>
 			<div class="menu">
 			  <a class="toggleMenu" href="#"><img src="images/nav_icon.png" alt="" /></a>
 				<ul class="nav" id="nav">
 				  
-				   <li><a href="#contact" class="scroll">Cadastre-se</a></li>								
+				   <li><a href="login.html"> Entrar </a></li>
+				   <li><a href="cadastro.html"> Cadastre-se </a></li>
+								   
 				   <div class="clear"></div>
 			    </ul>
 			</div>							
@@ -89,27 +93,27 @@
 		   </div>
 		 </div>
 		 </div>
-	</div>
+		<section class="login">
+		 <div class="login-page">
+  <div class="form">
+    <p><strong>Faça login para marcar consultas</strong></p>
+    
+    <form class="register-form">
+      <input type="text" placeholder="name"/>
+      <input type="password" placeholder="password"/>
+      <input type="text" placeholder="email address"/>
+      <button>create</button>
+      <p class="message">Already registered? <a href="#">Sign In</a></p>
+    </form>
+    <form class="login-form">
+      <input type="text" placeholder="Usuário"/>
+      <input type="password" placeholder="Senha"/>
+      <button>Entrar</button>
+      <p class="message">Não tem cadastro? <a href="cadastro.html">Crie agora mesmo</a></p>
+    </form>
+  </div>
+</div>
 
-	<div class="lista">
-	<ul>
-	<li>
-	<div class="medico1">
-	<img src="images/clinica.png" />
-	<h4>Nome: Clinica Santé</h4>
-	<h4><br>Telefone: 9999-99999</br></h4>
-	<h4><br>Endereço: Loja 10 Av Castanheiras </br></h4>
-	<h4><br>Cidade: Águas Claras </br></h4>
-	<h4><br>Especialidade: Nutricionista </br></h4>
-	<form action="clinicasante.html" method="get">
-	
-	<input type="submit" value="Selecionar" id="Selecionar" name="Sante" formtarget="_self" src="https://clubdopenguinnotice.files.wordpress.com/2010/08/edit-icon.jpg">
-	</form>
-	 
-	 
-	</li>
-	</ul>
-	</div>
-	</div>
-	</body>
+</body>
+</section>
 </html>

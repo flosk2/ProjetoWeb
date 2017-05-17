@@ -4,6 +4,7 @@ include 'php/db.php';
 <!DOCTYPE HTML>
 <html>
 <head>
+<meta charset="utf-8" /> 
 <title>Minha Consulta</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <link href="css/style.css" rel='stylesheet' type='text/css' />
@@ -68,13 +69,15 @@ include 'php/db.php';
 	  <div class="header-top">
 		<div class="container">
 			<div class="logo">
-			  <a href="index.html"><img src="images/logo.png" alt=""/></a>
+			  <a href="index.php"><img src="images/logo.png" alt=""/></a>
 			</div>
 			<div class="menu">
 			  <a class="toggleMenu" href="#"><img src="images/nav_icon.png" alt="" /></a>
 				<ul class="nav" id="nav">
 				  
-				   <li><a href="#contact" class="scroll">Cadastre-se</a></li>								
+				   <li><a href="login.html"> Entrar </a></li>
+				   <li><a href="cadastro.html"> Cadastre-se </a></li>
+								   
 				   <div class="clear"></div>
 			    </ul>
 			</div>							
@@ -92,12 +95,14 @@ include 'php/db.php';
 				</script>
 		   </div>
 		 </div>
+		 </div>
+		 <section class="primeiroEspaço">
 		 <div class="header-bottom" id="home">
 		  <div class="primeiraLista">
 <h3>Selecione sua cidade </h3>		  
 <form action="php/mostrarMedicos.php" method="POST">
 
-<select name="a" style="width: 300px;">
+<select name="a" class="combo1">
   <?php
   $sql = "SELECT Cidade from medicos group by Cidade order by Cidade asc;";
 $result = $conn->query($sql);
@@ -118,7 +123,7 @@ if ($result->num_rows > 0) {
 <div class="segundaLista">
 <h3>Selecione a especialidade do médico </h3>
 
-<select name="b" style="width: 300px;">
+<select name="b" class="combo2" >
 		
 	<?php
   $sql = "SELECT Especializacao from medicos group by Especializacao order by Especializacao asc;";
@@ -137,17 +142,17 @@ if ($result->num_rows > 0) {
  ?> 
 
 </select>
-
+</div>
 <div class="btPesquisa">
 
-<input type="submit" value="Pesquisar" id="Selecionar" name="Pediatra" formtarget="_self"></input>
+<input type="image" value="Pesquisar" id="Selecionar" name="Pediatra" formtarget="_self" src="images/botao-enviar.png"></input>
 
 </div>
 
 
 
 </form>
-</div>
+
 <script type="text/javascript">
 function Abrir()
 {
@@ -164,13 +169,7 @@ window.location="index.html";
 }
 </script>
 
-
-
-
-
-
-
-
+</section>
 
 <div class="LISTAR">
 <form action="php/listar.php" method="POST">
@@ -179,14 +178,7 @@ window.location="index.html";
 </div>
 
 
-<div class="telaLogin">
-<form method="POST" action="php/insert.php">
 
-<label>Login:</label><input type="text"  name="login" id="login"><br>
-<label>Senha:</label><input type="password" name="senha" id="senha"><br>
-<input type="submit" value="Cadastrar" id="cadastrar" name="cadastrar" src="images/botao-enviar.png">
-</form>
-		 </div>
 	</div>
 	<!--end header-->
 	<!--start services-->
@@ -226,21 +218,6 @@ window.location="index.html";
 	  
 	  
 
-      <script type="text/javascript">
-			$(document).ready(function() {
-			
-				var defaults = {
-		  			containerID: 'toTop', // fading element id
-					containerHoverID: 'toTopHover', // fading element hover id
-					scrollSpeed: 1200,
-					easingType: 'linear' 
-		 		};
-				
-				
-				$().UItoTop({ easingType: 'easeOutQuart' });
-				
-			});
-		</script>
-        <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
+      
 </body>
 </html>
