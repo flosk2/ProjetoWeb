@@ -69,14 +69,14 @@ include 'php/db.php';
 	  <div class="header-top">
 		<div class="container">
 			<div class="logo">
-			  <a href="index.php"><img src="images/logo.png" alt=""/></a>
+			  <a href="http://igorlisboa.esy.es/index.php"><img src="images/logo.png" alt=""/></a>
 			</div>
 			<div class="menu">
 			  <a class="toggleMenu" href="#"><img src="images/nav_icon.png" alt="" /></a>
 				<ul class="nav" id="nav">
 				  
-				   <li><a href="login.html"> Entrar </a></li>
-				   <li><a href="cadastro.html"> Cadastre-se </a></li>
+				   <li><a href="http://igorlisboa.esy.es/login.html"> Entrar </a></li>
+				   <li><a href="http://igorlisboa.esy.es/cadastro.html"> Cadastre-se </a></li>
 								   
 				   <div class="clear"></div>
 			    </ul>
@@ -99,8 +99,8 @@ include 'php/db.php';
 		 <section class="primeiroEspaço">
 		 <div class="header-bottom" id="home">
 		  <div class="primeiraLista">
-<h3>Selecione sua cidade </h3>		  
-<form action="php/mostrarMedicos.php" method="POST">
+<h3>Selecione sua cidade</h3>		  
+<form action="http://igorlisboa.esy.es/php/Select.php" method="POST">
 
 <select name="a" class="combo1">
   <?php
@@ -121,7 +121,7 @@ if ($result->num_rows > 0) {
 </div>
 
 <div class="segundaLista">
-<h3>Selecione a especialidade do médico </h3>
+<h3>Selecione a especialidade</h3>
 
 <select name="b" class="combo2" >
 		
@@ -156,7 +156,7 @@ if ($result->num_rows > 0) {
 <script type="text/javascript">
 function Abrir()
 {
-location.href=" listamedicos.html"
+location.href="http://igorlisboa.esy.es/listamedicos.html"
 }
 </script>
 
@@ -165,17 +165,13 @@ location.href=" listamedicos.html"
 function inicio()
 {
 alert("ssss");
-window.location="index.html";
+window.location="http://igorlisboa.esy.es/index.html";
 }
 </script>
 
 </section>
 
-<div class="LISTAR">
-<form action="php/listar.php" method="POST">
-<input type="submit" value="Mostar" id="Selecionar" name="mostrar" formtarget="_self"></input>
-</form>
-</div>
+
 
 
 

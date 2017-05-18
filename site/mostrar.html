@@ -1,0 +1,112 @@
+<html>
+
+<head>
+    
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="ionic/css/ionic.min.css">
+        <title>Clinicas</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+       
+        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+        
+
+        <style>
+           
+                @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+                @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+                
+        </style>
+
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" type="text/css" href="css/ionic.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+   
+    <script type="text/javascript">
+    
+        $(document).ready(function() {
+         
+      
+            var url = "http://igorlisboa.esy.es/php/Select.php";
+            $.getJSON(url, function(result) {
+            console.log(result);
+            $.each(result, function(i, field) {
+                var id = field.id;
+                var Nome = field.Nome;
+                var Cidade = field.Cidade;
+                var Endereco = field.Endereco;
+                $("#listview").append("<a class='item' href='index.php?id=" + id + "&Nome=" + Nome + "&Cidade=" + Cidade + "&Endereco=" + Endereco + "'><span class='item-note'>Endereco " + Cidade+ "</span><h2>" + Nome + " </h2><p>" + Endereco + "</p></a>");
+            });
+        });
+    });
+    </script>
+
+    
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $("#home").click(function() {
+              window.location="index.html";
+              });
+        
+        }); 
+    </script>
+    
+    
+    
+    
+    
+    
+    </head>
+
+<body>
+                 <ion-header-bar class="bar inner-element uib_w_1 bar-positive bar-header" data-uib="ionic/header" data-ver="0">
+                    <div class="buttons widget-container content-area horiz-area wrapping-col"></div>
+                    <h1 class="title">Clinicas</h1>
+                    
+                     
+                     
+                      
+                     <div class="buttons widget-container content-area horiz-area wrapping-col"></div>
+                </ion-header-bar>
+     
+    
+    
+    
+    
+               <ion-footer-bar class="bar inner-element uib_w_8 bar-positive bar-footer" data-uib="ionic/footer" data-ver="0">
+                    <div class="buttons widget-container content-area horiz-area wrapping-col"></div>
+                    <h1 class="title"></h1>
+                    <div class="buttons widget-container content-area horiz-area wrapping-col"></div>
+                </ion-footer-bar>
+    <br/>
+    <br/>
+    
+    <div id="scroll">
+    <ul class="list" id="listview">
+    </ul>
+    
+    
+    
+    <div class="item">
+        
+        <input type="button" id="home" class="button button-block" value="Tela Inicial" />
+            
+        </div>
+    
+    
+    
+</body>
+</html>

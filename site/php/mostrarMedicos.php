@@ -7,7 +7,6 @@ $especi = $_POST['b'];
 
 $sql = "SELECT Nome,Endereco from medicos where (Cidade = '$cidade' and Especializacao = '$especi');";
 $result = $conn->query($sql);
-
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
@@ -16,7 +15,5 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
-
-
 
 ?>

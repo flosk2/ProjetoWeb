@@ -72,8 +72,8 @@
 			  <a class="toggleMenu" href="#"><img src="images/nav_icon.png" alt="" /></a>
 				<ul class="nav" id="nav">
 				  
-				   <li><a href="login.html"> Entrar </a></li>
-				   <li><a href="cadastro.html"> Cadastre-se </a></li>
+				   <li><a href="http://igorlisboa.esy.es/login.html"> Entrar </a></li>
+				   <li><a href="http://igorlisboa.esy.es/cadastro.html"> Cadastre-se </a></li>
 								   
 				   <div class="clear"></div>
 			    </ul>
@@ -98,18 +98,18 @@
   <div class="form">
     <p><strong>Faça login para marcar consultas</strong></p>
     
-    <form class="register-form">
-      <input type="text" placeholder="name"/>
+    <form class="register-form" >
+      <input  type="text" placeholder="name"/>
       <input type="password" placeholder="password"/>
       <input type="text" placeholder="email address"/>
       <button>create</button>
       <p class="message">Already registered? <a href="#">Sign In</a></p>
     </form>
-    <form class="login-form">
-      <input type="text" placeholder="Usuário"/>
-      <input type="password" placeholder="Senha"/>
+    <form method="POST" class="login-form" action="php/logar.php">
+      <input name ="user" type="text" placeholder="Usuário"/>
+      <input  name = "pass" type="password" placeholder="Senha"/>
       <button>Entrar</button>
-      <p class="message">Não tem cadastro? <a href="cadastro.html">Crie agora mesmo</a></p>
+      <p class="message">Não tem cadastro? <a href="http://igorlisboa.esy.es/cadastro.html">Crie agora mesmo</a></p>
     </form>
   </div>
 </div>

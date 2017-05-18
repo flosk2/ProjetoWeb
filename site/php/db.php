@@ -1,16 +1,4 @@
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "site";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password,$dbname);
-
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-//echo "Connected successfully";
+﻿<?php
+ header("Access-Control-Allow-Origin: *");
+ $conn = mysqli_connect("mysql.hostinger.com.br","u354548780_root","446758","u354548780_dbtst") or die ("Não conectado.");
 ?>
