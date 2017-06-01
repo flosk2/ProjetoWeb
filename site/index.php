@@ -1,5 +1,6 @@
 <?php
-include 'php/db.php';
+include 'php/dblocal.php';
+require_once 'config/config.php';
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -13,9 +14,15 @@ include 'php/db.php';
 <link href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,800' rel='stylesheet' type='text/css'>
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <script src="js/jquery-1.9.1.min.js"></script>
+
+
+
+
+
 <!--hover-effect-->
 <script src="js/hover_pack.js"></script>
 <script type="text/javascript" src="js/jquery.mixitup.min.js"></script>
+
 	<script type="text/javascript">
 	$(function () {
 		
@@ -64,6 +71,8 @@ include 'php/db.php';
 	</script>
 </head>
 <body>
+	<label><?php echo $servidor?></label>		
+	
 	<!--start header-->
 	<div class="header">
 	  <div class="header-top">
@@ -76,7 +85,8 @@ include 'php/db.php';
 				<ul class="nav" id="nav">
 				  
 				   <li><a href="http://igorlisboa.esy.es/login.html"> Entrar </a></li>
-				   <li><a href="http://igorlisboa.esy.es/cadastro.html"> Cadastre-se </a></li>
+				   <li><a href="http://igorlisboa.esy.es/cadastro.html"> Criar conta </a></li>
+				   <li><a href="http://igorlisboa.esy.es/novaClinica.html"> Adicionar clínicas </a></li>
 								   
 				   <div class="clear"></div>
 			    </ul>
@@ -99,7 +109,8 @@ include 'php/db.php';
 		 <section class="primeiroEspaço">
 		 <div class="header-bottom" id="home">
 		  <div class="primeiraLista">
-<h3>Selecione sua cidade</h3>		  
+
+<label>Selecione sua cidade </label>		  
 <form action="http://igorlisboa.esy.es/php/Select.php" method="POST">
 
 <select name="a" class="combo1">
@@ -121,7 +132,8 @@ if ($result->num_rows > 0) {
 </div>
 
 <div class="segundaLista">
-<h3>Selecione a especialidade</h3>
+
+<label>Selecione a especialidade </label>
 
 <select name="b" class="combo2" >
 		
@@ -145,13 +157,23 @@ if ($result->num_rows > 0) {
 </div>
 <div class="btPesquisa">
 
-<input type="image" value="Pesquisar" id="Selecionar" name="Pediatra" formtarget="_self" src="images/botao-enviar.png"></input>
+
+	
+<input type="submit" value="Pesquisar" id="submit">	
+<input type="button" onclick="window.location.href='http://igorlisboa.esy.es/php/Select.php'" value="Ver todas" id="submit2" >	
+
 
 </div>
 
 
 
+
 </form>
+
+
+
+
+
 
 <script type="text/javascript">
 function Abrir()
@@ -175,42 +197,16 @@ window.location="http://igorlisboa.esy.es/index.html";
 
 
 
-	</div>
-	<!--end header-->
-	<!--start services-->
-	<div class="services" id="services">
-		<div class="container">
-			<div class="row">
-				<h3 class="m_3">Como agendar sua consulta</h3>
-				<div class="m_4"><span class="bottom_line"> </span></div>
-				<div class="col-md-3 top_grid">
-					<i class="coffee"> </i>
-					<h3 class="m_1">Primeiro</h3>
-					<h4 class="m_2">Primeiro cadastre-se ou efetue login.</h4>
-				</div>
-				<div class="col-md-3 top_grid">
-					<i class="instant"> </i>
-					<h3 class="m_1">Segundo</h3>
-					<h4 class="m_2">Selecione a cidade desejada e a especialidade do médico.</h4>
-				</div>
-				<div class="col-md-3 top_grid">
-					<i class="advisor"> </i>
-					<h3 class="m_1">Terceiro</h3>
-					<h4 class="m_2">Escolha o médico da lista que mais lhe agrade.</h4>
-				</div>
-				<div class="col-md-3 top_grid1">
-					<i class="frame"> </i>
-					<h3 class="m_1">Quarto</h3>
-					<h4 class="m_2">Selecione suas opções de horários,confirme se está tudo correto e pronto sua consulta está agendada.</h4>
-				</div>
-			</div>
-		</div>
-	 </div>
-	 <!--end services-->
-	 <!--start portfolio-->
+
 	 
 	  
-	  
+<footer class="footer">
+  
+</footer>
+
+
+</footer>
+
 	  
 	  
 

@@ -1,0 +1,4 @@
+<?php
+$servidor = "Teste";
+
+?>

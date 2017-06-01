@@ -11,7 +11,7 @@ $cidade = $_POST['a'];
 $especi = $_POST['b'];
 
 
-$sql = "SELECT * from medicos where (Cidade = '$cidade' and Especializacao = '$especi' ) GROUP BY Nome;";
+$sql = "SELECT * from medicos where (Cidade like '%$cidade%' and Especializacao like '%$especi%' ) GROUP BY Nome;";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
@@ -21,6 +21,29 @@ if ($result->num_rows > 0) {
 	<!DOCTYPE HTML>
 <html>
 <head>
+
+
+<style>
+input[type=submit]
+{
+	margin-bottom: 20px;
+	width:50%;
+	padding: 15px;
+	border-radius:5px;
+	border:1px solid #7ac9b7;
+	background-color: #4180C5;
+	color: aliceblue;
+	font-size:15px;
+	cursor:pointer;
+}
+
+.container .bt_agenda{
+	text-align: center;
+}
+
+
+</style>
+
 <meta charset="utf-8" /> 
 <title>Minha Consulta</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
@@ -88,16 +111,7 @@ if ($result->num_rows > 0) {
 			<div class="logo">
 			  <a href="http://igorlisboa.esy.es/index.php"><img src="images/logo.png" alt=""/></a>
 			</div>
-			<div class="menu">
-			  <a class="toggleMenu" href="#"><img src="images/nav_icon.png" alt="" /></a>
-				<ul class="nav" id="nav">
-				  
-				   <li><a href="http://igorlisboa.esy.es/login.html"> Entrar </a></li>
-				   <li><a href="http://igorlisboa.esy.es/cadastro.html"> Cadastre-se </a></li>
-								   
-				   <div class="clear"></div>
-			    </ul>
-			</div>							
+										
 	        <div class="clear"></div>
 	        <script type="text/javascript" src="js/responsive-nav.js"></script>
 			<script type="text/javascript" src="js/move-top.js"></script>
@@ -128,21 +142,39 @@ if ($result->num_rows > 0) {
 
 
 <div class="container">
-  <h2><?php echo $row["Nome"]; ?></h2>
+ 
+<form action="http://igorlisboa.esy.es/php/abrirAgenda.php" method="POST">
+ 
   <ul class="list-group">
-    <li class="list-group-item"><strong>Cidade: </strong><?php echo $row["Cidade"];?></li>
+    
+	
+	
+	
+	<li class="list-group-item"><strong><center><h1><font color="#4180c5"><?php echo $row["Nome"]; ?></font></h1></center></strong></li>
+	<li class="list-group-item"><strong>Cidade: </strong><?php echo $row["Cidade"];?></li>
     <li class="list-group-item"><strong>Endereco: </strong><?php echo $row["Endereco"];?></li>
     <li class="list-group-item"><strong>Telefone: </strong><?php echo $row["Fone"];?></li>
+	<li class="list-group-item"><strong>Especialização: </strong><?php echo $row["Especializacao"];?></li>
+	
+	<input type="hidden" name="id" value="<?php echo $row["id"];?>"  id="btEnviar"  />
+	<div class = "bt_agenda">
+	<li class="list-group-item"><input type="submit" name="bt" value="Abrir Agenda"    /></li>
+ </div>
+  
   </ul>
+  
+  </form>
 </div>
 <?php
 		
 		
     }
 } else {
-    echo "0 results";
+   header("Location: semResultados.html");
 }
 
 
 
 ?>
+</body>
+</html>

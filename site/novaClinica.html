@@ -1,0 +1,68 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8"/>
+	<title>Novo cadastro</title>
+	<!-----Including CSS for different screen sizes----->
+	<link rel="stylesheet" type="text/css" href="responsiveform.css">
+	<link rel="stylesheet" media="screen and (max-width: 1200px) and (min-width: 601px)" href="responsiveform1.css" />
+	<link rel="stylesheet" media="screen and (max-width: 600px) and (min-width: 351px)" href="responsiveform2.css" />
+	<link rel="stylesheet" media="screen and (max-width: 350px)" href="responsiveform3.css" />
+
+	<!--start header-->
+	<div class="header">
+	  <div class="header-top">
+		<div class="container">
+			<div class="logo">
+			  <a href="http://igorlisboa.esy.es/index.php"><img src="images/logo.png" alt=""/></a>
+			</div>
+			<div class="menu">
+			  <a class="toggleMenu" href="#"><img src="images/nav_icon.png" alt="" /></a>
+				<ul class="nav" id="nav">
+				  
+				 
+				
+			</div>							
+	        <div class="clear"></div>
+	        <script type="text/javascript" src="js/responsive-nav.js"></script>
+			<script type="text/javascript" src="js/move-top.js"></script>
+			<script type="text/javascript" src="js/easing.js"></script>
+			   <script type="text/javascript">
+					jQuery(document).ready(function($) {
+						$(".scroll").click(function(event){		
+							event.preventDefault();
+							$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+						});
+					});
+				</script>
+		   </div>
+		 </div>
+		 </div>
+	
+	
+	
+	</head>
+<body>
+<div id="envelope">
+<header>
+    <h2>Cadastro de nova clínica</h2>
+    <p>Preencha todos os campos</p>
+</header>
+<hr>
+<form action="php\novaClinica.php" method="post">  
+	<label>Clínica </label>
+	<input type="text" name="clinica" placeholder="Digite o nome clínica" width="100px;">
+	<label>Cidade </label>
+	<input type="text" name="cidade" placeholder="Cidade">		
+	<label>Endereço</label>
+	<input type="text" name="endereco" placeholder="Endereço da clínica">
+	<label>Contato</label>
+	<input type="text" name="contato" placeholder="Número para contado">	
+	<label>Especialização</label>
+	<input type="text" name="espec" placeholder="Especialização da clínica">	
+	
+	<input type="submit" value="Cadastrar" id="submit">		
+</form>
+</div>
+</body>
+</html>

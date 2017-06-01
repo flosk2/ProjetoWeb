@@ -5,6 +5,11 @@
 <title>Minha Consulta</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <link href="css/style.css" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" type="text/css" href="responsiveform.css">
+	<link rel="stylesheet" media="screen and (max-width: 1200px) and (min-width: 601px)" href="responsiveform1.css" />
+	<link rel="stylesheet" media="screen and (max-width: 600px) and (min-width: 351px)" href="responsiveform2.css" />
+	<link rel="stylesheet" media="screen and (max-width: 350px)" href="responsiveform3.css" />
+
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,800' rel='stylesheet' type='text/css'>
@@ -90,15 +95,17 @@
 		   </div>
 		 </div>
 		 </div>
+	
+	<div id="envelope">
 	<section class="secao-cadastro">
 	<div class="cadastro">
 	<form method="POST"  >
 	<fieldset id="usuario"> <legend>Cadastro do Usuário</legend>
 	<p><label class="cNome" >Nome:</label><input type="text" name="tNome" id="cNome" size="20" maxlength="30" placeholder="Nome Completo" /> </p>
-	<p><label class="cCPF" >CPF:</label><input type="number" name="tCPF" id="cCPF" size="9" maxlength="9" placeholder="Seu CPF" /> </p>
+	<p><label class="cCPF" >CPF:</label><input type="text" name="tCPF" id="cCPF" size="9" maxlength="9" placeholder="Seu CPF" /> </p>
     <p> <label class="cSenha" >Senha:</label> <input type="password" name="tSenha" id="cSenha" size="8" maxlength="8" placeholder="8 Digitos" </p>
     <p><label class="cMail" >E-mail:</label><input type="email" name="tMail" id="cMail" size="20" maxlength="40" placeholder="Digite seu email" </p>
-    <p><label class="sexo">Sexo:</label>
+    <p><label class="sexo">Sexo:<br><br /></label>
         <input type="radio" name="tSexo" id="cMasc"  /> <label for="cMasc" >Masculino</label> 
         <input type="radio" name="tSexo" id="cFem" /> <label for="cFem" >Feminino</label>
 	
@@ -139,9 +146,10 @@
 	</optgroup>
 	</select>
 	</p>
-	<input type="submit" name="Enviar" id="btEnviar"  />
+	<input type="submit" name="Enviar" value="Dasativado" disabled id="btEnviar"  />
 	</fieldset>
 	</form>
+	</div>
 	</div>
 	</section>
 	</body>
