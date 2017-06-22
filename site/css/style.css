@@ -178,7 +178,7 @@ select {
 
 input[type=submit]
 {
-	margin-bottom: 50%;
+	margin-bottom: 1%;
 	width:40%;
 	text-align: center;
 	padding: 15px;
@@ -248,66 +248,7 @@ input[type=button]
 	width:68%;
 	margin: 0 auto;
 }
-/*--services--*/
-.services{
-	background:#4bcaff;
-	padding:6% 0;
-}
-i.coffee{
-	background: url(../images/img-sprite.png)no-repeat -3px -7px;
-	width: 50px;
-	height: 60px;
-	display: inline-block;
-}
-i.instant{
-	background: url(../images/img-sprite.png)no-repeat -73px -8px;
-	width: 55px;
-	height: 60px;
-	display: inline-block;
-}
-i.advisor{
-	background: url(../images/img-sprite.png)no-repeat -156px -8px;
-	width: 55px;
-	height: 60px;
-	display: inline-block;
-}
-i.frame{
-	background: url(../images/img-sprite.png)no-repeat -242px -8px;
-	width: 55px;
-	height: 60px;
-	display: inline-block;
-}
-.m_4{
-	margin-bottom: 5%;
-	position: relative;
-}
-span.bottom_line{
-	width: 50px;
-	display: block;
-	border-bottom: 2px solid #FFF;
-	position: absolute;
-	bottom:-10px;
-	margin:0 15px;
-}
-h3.m_3{
-	color:#fff;
-	font-size:2em;
-	font-family: 'caviar_dreamsregular';
-	text-transform:uppercase;
-	margin:0 15px;
-}
-h3.m_1{
-	color: #FFF;
-	font-size: 1.7em;
-	text-transform: uppercase;
-	font-weight:400;
-	margin: 5% 0;
-}
-h4.m_2{
-	color:#fff;
-	font-size:20px;
-	line-height:1.5em;
-}
+
 /*--Cadastre-se--*/
 .secao-cadastro .cadastro{
 	position: relative;

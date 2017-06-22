@@ -1,3 +1,4 @@
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta charset="utf-8" /> 
@@ -7,7 +8,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,800' rel='stylesheet' type='text/css'>
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+
+<style>
+.cNome{
+	margin-bottom: 20px;
+	margin-top: 10px;
+	width:60%;
+	padding: 15px;
+	border-radius:5px;
+	border:1px solid #7ac9b7;
+	background:#dfdfdf;
+	color: #d10404;
+	
+}
+
+.msgSemResultados{
+
+text-align: center;
+
+}
+.header-top{
+	background: #056ce0;
+	padding: 3% 0;
+}
+
+</style>
 <script src="js/jquery-1.9.1.min.js"></script>
 <!--hover-effect-->
 <script src="js/hover_pack.js"></script>
@@ -23,7 +49,7 @@
 				// http://mixitup.io
 				$('#portfoliolist').mixitup({
 					targetSelector: '.portfolio',
-					filterSelector: '.filter',	
+					filterSelector: '.filter',
 					effects: ['fade'],
 					easing: 'snap',
 					// call the hover effect
@@ -54,30 +80,18 @@
 		filterList.init();
 		
 		
-		
-		
 	});	
 	</script>
 </head>
- 
 <body>
 	<!--start header-->
 	<div class="header">
 	  <div class="header-top">
 		<div class="container">
 			<div class="logo">
-			  <a href="index.php"><img src="images/logo.png" alt=""/></a>
+			  <a href="http://igorlisboa.esy.es/index.php"><img src="images/logo.png" alt=""/></a>
 			</div>
-			<div class="menu">
-			  <a class="toggleMenu" href="#"><img src="images/nav_icon.png" alt="" /></a>
-				<ul class="nav" id="nav">
-				  
-				   <li><a href="login.html"> Entrar </a></li>
-				   <li><a href="cadastro.html"> Cadastre-se </a></li>
-								   
-				   <div class="clear"></div>
-			    </ul>
-			</div>							
+									
 	        <div class="clear"></div>
 	        <script type="text/javascript" src="js/responsive-nav.js"></script>
 			<script type="text/javascript" src="js/move-top.js"></script>
@@ -93,27 +107,23 @@
 		   </div>
 		 </div>
 		 </div>
-		<section class="login">
-		 <div class="login-page">
-  <div class="form">
-    <p><strong>Faça login para marcar consultas</strong></p>
-    
-    <form class="register-form" >
-      <input  type="text" placeholder="name"/>
-      <input type="password" placeholder="password"/>
-      <input type="text" placeholder="email address"/>
-      <button>create</button>
-      <p class="message">Already registered? <a href="#">Sign In</a></p>
-    </form>
-    <form method="POST" class="login-form" action="php/logar.php">
-      <input name ="user" type="text" placeholder="Usuário"/>
-      <input  name = "pass" type="password" placeholder="Senha"/>
-      <button>Entrar</button>
-      <p class="message">Não tem cadastro? <a href=<?php echo $servidor."/cadastro.html"?>>Crie agora mesmo</a></p>
-    </form>
-  </div>
+<section class="semResultados">
+<script type="text/javascript">
+        function login1(){
+            setTimeout("window.location='http://igorlisboa.esy.es/index.php'",5000);
+            
+        }
+        
+        </script>
+
+<div class="msgSemResultados">
+<label class="cNome" ><center><h3>Não há consultas marcadas</h3> </center></label>
+
 </div>
 
-</body>
+<script>login1()</script>
 </section>
+
+</body>
+</html>
 </html>

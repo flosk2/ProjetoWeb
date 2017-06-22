@@ -1,17 +1,28 @@
 <?php
+include "db.php";
 session_start();
-include 'php/db.php';
 
-require_once 'php/config.php';
 
-?>
+
+//$cidade = "Taguatinga";
+//$especi = "Nutricionista";
+
+//$cidade = $_POST['a'];
+//$especi = $_POST['b'];
+$id = $_SESSION['id'];
+
+$sql = "SELECT * from consultas_usuario where usuario = '$id';";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    // output data of each row
+    
+	?>
 <!DOCTYPE HTML>
 <html>
 <head>
 <meta charset="utf-8" /> 
 <title>Minha Consulta</title>
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-<link href="css/style.css" rel='stylesheet' type='text/css' />
+
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,800' rel='stylesheet' type='text/css'>
@@ -28,15 +39,6 @@ require_once 'php/config.php';
 
 	<script type="text/javascript">
 	$(function () {
-		
-		
-		document.getElementById("usuarioLogado").innerHTML ="<?php echo $_SESSION['usuario']?>";
-
-		
-		
-		
-		
-		
 		
 		var filterList = {
 		
@@ -79,25 +81,16 @@ require_once 'php/config.php';
 		
 		
 		
-	});
-	
-	
-	
-  
-   
-
-
-
-
-
-	
+	});	
 	</script>
-	
-
-	
-	
 </head>
 <body>
+	
+	
+	
+	
+	
+	
 	<!--start header-->
 	<div class="header">
 	  <div class="header-top">
@@ -105,23 +98,7 @@ require_once 'php/config.php';
 			<div class="logo">
 			  <a href=<?php echo $servidor."/index.php"?>><img src="images/logo.png" alt=""/></a>
 			</div>
-			
-			
-			<div class="menu">
-			  
-			  <a class="toggleMenu" href="#"><img src="images/nav_icon.png" alt="" /></a>
-				<ul class="nav" id="nav">
-				   <li><a id = "usuarioLogado" href=<?php echo $servidor."/php/ConsultasMarcadas.php"?>> Usuário </a></li>
-				   <li><a id ="entrar" href=<?php echo $servidor."/login.html"?>>Entrar</a></li>
-				    <li><a id = "sair" href=<?php echo $servidor."/php/sair.php"?>> Sair </a></li>
-				   
-                   <li><a id = "criar" href=<?php echo $servidor."/cadastro.html"?>> Criar conta </a></li>
-                   
-
-								   
-				   <div class="clear"></div>
-			    </ul>
-			</div>							
+				
 	        <div class="clear"></div>
 	        <script type="text/javascript" src="js/responsive-nav.js"></script>
 			<script type="text/javascript" src="js/move-top.js"></script>
@@ -137,84 +114,187 @@ require_once 'php/config.php';
 		   </div>
 		 </div>
 		 </div>
-		 
-		 
 		 <section class="primeiroEspaço">
 		 <div class="header-bottom" id="home">
 		  <div class="primeiraLista">
 
-<label>Selecione sua cidade </label>		  
-<form name="busca" action=<?php echo $servidor."/php/Select.php" ?> method="POST"> 
+	  
+<style type="text/css">
 
-<select name="a" class="combo1">
-  <option value=""</option>
-  <?php
-  $sql = "SELECT Cidade from medicos group by Cidade order by Cidade asc;";
-  $result = $conn->query($sql);
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-     
-	echo "<option value=\"". $row['Cidade'] . "\">". $row['Cidade'] . "</option>";	
-	
-	}
-} else {
-    echo "0 results";
+
+
+
+table {
+font-size:12px;
+color:#ffffff;
+width:97%;
+border-width: 1px;
+border-color: #4180c5;
+margin: 0 auto;
 }
- 
- ?> 
-</select>
-</div>
 
-<div class="segundaLista">
 
-<label>Selecione a especialidade </label>
 
-<select name="b" class="combo2" >
-	<option value=""</option>	
-	<?php
-  $sql = "SELECT Especializacao from medicos group by Especializacao order by Especializacao asc;";
-$result = $conn->query($sql);
+.tftable th 
+{font-size:12px;
+background-color:#696969;
+border-width: 1px;
+padding: 8px;
+border-style: solid;
+border-color: #4180c5;
+text-align:center;
+border-radius: 5px;
+font-size: 120%;
 
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-     
-	echo "<option value=\"". $row['Especializacao'] . "\">". $row['Especializacao'] . "</option>";	
-	}
-} else {
-    echo "0 results";
 }
-  
- ?> 
+table tr {
+background-color:#9cbfc1;
+font-size: 120%;
+font-family: "arial";
+font-size:15px
 
-</select>
-</div>
+}
+
+
+table td {
+font-size:12px;
+border-width: 1px;
+padding: 8px;
+border-color: #4180c5;
+border-radius: 5px;
+font-size: 120%;
+
+
+}
+table tr:hover {
+background-color:#728889;
+cursor:  pointer; 
+
+
+}
+table th:hover {
+cursor: default; 
 
 
 
-<div class="btPesquisa">
+}
 
+input[type=text]{
+	margin-bottom: 20px;
+	margin-top: 10px;
+	width:75%;
+	padding: 15px;
+	border-radius: 5px;
+	border:1px solid #7ac9b7;
+}
+
+.painel{
+ margin-left: auto;
+ margin-right: auto;
+ opacity: 0.9;
+
+}
+
+.tabela{
+    margin-bottom: 20px;
+	margin-top: 10px;
+    
+	width:100%;
+	border-radius:5px;
+	border:1px solid #7ac9b7;
+	background:#99cfd8;
+	color: #00b711;
+    text-align: center;
+    
+    font-family: "arial";
+    
+     
+    
+}
+.painel .tabela .text{
+text-align: center;
+
+}
+
+
+html,body{
+
+
+
+background-size:contain;
+background-repeat: no-repeat;
+
+background-size: 100% 100%; 
+
+}
+</style>
+
+<div class="painel">
+<div class="tabela">
+<label class = "text" <center><h2>Consultas Agendadas</h2> </center></label>
+<table class="tftable" >
+<tr><th>Data</th><th>Horário</th><th>Paciente</th><th>Valor</th><th>Tipo de consulta</th><th>Convénio</th><th>Telefone</th></tr>
+<?php
 	
-<input type="submit" value="Pesquisar" id="submit"></input>
+	
+while($row = $result->fetch_assoc()) {
+?>
+       
+<tr><td><?php echo $row["data"];?></td><td><?php echo $row["hora"];?></td><td><?php echo $row["clinica"];?></td><td><?php echo $row["valor"];?></td><td><?php echo $row["tipo"];?></td><td><?php echo $row["convenio"];?></td><td><?php echo $row["telefone"];?></td></tr>
+	
+<?php
+		
+    }
+} else {
+   header("Location: semConsultasMarcadas.html");
+}
 
-<input type="submit" onclick="javascript document.forms[0].reset();" value="Ver todas" id="submit2" ></input>
+?>	
+
+</table>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<label>  </label>
+
+</div>
 </div>
 
 
 
 
-</form>
 
 
 
-
-
-
+<script type="text/javascript">
+function Abrir()
+{
+location.href="http://igorlisboa.esy.es/listamedicos.html"
+}
 </script>
-</div>
+
+
+<script type="text/javascript">
+function inicio()
+{
+alert("ssss");
+window.location="http://igorlisboa.esy.es/index.html";
+}
+</script>
+
 </section>
 
 
@@ -227,6 +307,8 @@ if ($result->num_rows > 0) {
 <footer class="footer">
   
 </footer>
+
+
 
 
 	  

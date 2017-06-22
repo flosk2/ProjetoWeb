@@ -40,6 +40,10 @@ input[type=submit]
 .container .bt_agenda{
 	text-align: center;
 }
+.header-top{
+	background: #056ce0;
+	padding: 3% 0;
+}
 
 
 </style>
@@ -143,7 +147,9 @@ input[type=submit]
 
 <div class="container">
  
-<form action="http://igorlisboa.esy.es/php/abrirAgenda.php" method="POST">
+<form action=<?php echo $servidor."/php/agendar.php"?> method="POST">
+ 
+
  
   <ul class="list-group">
     
@@ -158,7 +164,7 @@ input[type=submit]
 	
 	<input type="hidden" name="id" value="<?php echo $row["id"];?>"  id="btEnviar"  />
 	<div class = "bt_agenda">
-	<li class="list-group-item"><input type="submit" name="bt" value="Abrir Agenda"    /></li>
+	<li class="list-group-item"><input type="submit" name="bt" value="Agendar consulta"    /></li>
  </div>
   
   </ul>

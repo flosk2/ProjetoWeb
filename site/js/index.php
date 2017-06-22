@@ -1,3 +1,7 @@
+<?php
+include 'php/db.php';
+?>
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta charset="utf-8" /> 
@@ -9,9 +13,15 @@
 <link href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,800' rel='stylesheet' type='text/css'>
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <script src="js/jquery-1.9.1.min.js"></script>
+
+
+
+
+
 <!--hover-effect-->
 <script src="js/hover_pack.js"></script>
 <script type="text/javascript" src="js/jquery.mixitup.min.js"></script>
+
 	<script type="text/javascript">
 	$(function () {
 		
@@ -23,7 +33,7 @@
 				// http://mixitup.io
 				$('#portfoliolist').mixitup({
 					targetSelector: '.portfolio',
-					filterSelector: '.filter',	
+					filterSelector: '.filter',
 					effects: ['fade'],
 					easing: 'snap',
 					// call the hover effect
@@ -59,21 +69,21 @@
 	});	
 	</script>
 </head>
- 
 <body>
 	<!--start header-->
 	<div class="header">
 	  <div class="header-top">
 		<div class="container">
 			<div class="logo">
-			  <a href="index.php"><img src="images/logo.png" alt=""/></a>
+			  <a href="http://igorlisboa.esy.es/index.php"><img src="images/logo.png" alt=""/></a>
 			</div>
 			<div class="menu">
 			  <a class="toggleMenu" href="#"><img src="images/nav_icon.png" alt="" /></a>
 				<ul class="nav" id="nav">
 				  
-				   <li><a href="login.html"> Entrar </a></li>
-				   <li><a href="cadastro.html"> Cadastre-se </a></li>
+				   <li><a href="http://igorlisboa.esy.es/login.html"> Entrar </a></li>
+				   <li><a href="http://igorlisboa.esy.es/cadastro.html"> Criar conta </a></li>
+				   <li><a href="http://igorlisboa.esy.es/novaClinica.html"> Adicionar clínicas </a></li>
 								   
 				   <div class="clear"></div>
 			    </ul>
@@ -93,27 +103,110 @@
 		   </div>
 		 </div>
 		 </div>
-		<section class="login">
-		 <div class="login-page">
-  <div class="form">
-    <p><strong>Faça login para marcar consultas</strong></p>
-    
-    <form class="register-form" >
-      <input  type="text" placeholder="name"/>
-      <input type="password" placeholder="password"/>
-      <input type="text" placeholder="email address"/>
-      <button>create</button>
-      <p class="message">Already registered? <a href="#">Sign In</a></p>
-    </form>
-    <form method="POST" class="login-form" action="php/logar.php">
-      <input name ="user" type="text" placeholder="Usuário"/>
-      <input  name = "pass" type="password" placeholder="Senha"/>
-      <button>Entrar</button>
-      <p class="message">Não tem cadastro? <a href=<?php echo $servidor."/cadastro.html"?>>Crie agora mesmo</a></p>
-    </form>
-  </div>
+		 <section class="primeiroEspaço">
+		 <div class="header-bottom" id="home">
+		  <div class="primeiraLista">
+
+<label>Selecione sua cidade </label>		  
+<form action="http://igorlisboa.esy.es/php/Select.php" method="POST">
+
+<select name="a" class="combo1">
+  <?php
+  $sql = "SELECT Cidade from medicos group by Cidade order by Cidade asc;";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+     
+	echo "<option value=\"". $row['Cidade'] . "\">". $row['Cidade'] . "</option>";	
+	}
+} else {
+    echo "0 results";
+}
+ 
+ ?> 
+</select>
 </div>
 
-</body>
+<div class="segundaLista">
+
+<label>Selecione a especialidade </label>
+
+<select name="b" class="combo2" >
+		
+	<?php
+  $sql = "SELECT Especializacao from medicos group by Especializacao order by Especializacao asc;";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+     
+	echo "<option value=\"". $row['Especializacao'] . "\">". $row['Especializacao'] . "</option>";	
+	}
+} else {
+    echo "0 results";
+}
+  
+ ?> 
+
+</select>
+</div>
+<div class="btPesquisa">
+
+
+	
+<input type="submit" value="Pesquisar" id="submit">	
+<input type="button" onclick="window.location.href='http://igorlisboa.esy.es/php/Select.php'" value="Todos" >	
+
+
+</div>
+
+
+
+
+</form>
+
+
+
+
+
+
+<script type="text/javascript">
+function Abrir()
+{
+location.href="http://igorlisboa.esy.es/listamedicos.html"
+}
+</script>
+
+
+<script type="text/javascript">
+function inicio()
+{
+alert("ssss");
+window.location="http://igorlisboa.esy.es/index.html";
+}
+</script>
+
 </section>
+
+
+
+
+
+
+	 
+	  
+<footer class="footer">
+  
+</footer>
+
+
+</footer>
+
+	  
+	  
+
+      
+</body>
 </html>

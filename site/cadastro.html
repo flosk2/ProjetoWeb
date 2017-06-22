@@ -69,14 +69,14 @@
 	  <div class="header-top">
 		<div class="container">
 			<div class="logo">
-			  <a href="http://igorlisboa.esy.es/index.php"><img src="images/logo.png" alt=""/></a>
+			  <a href="index.php"><img src="images/logo.png" alt=""/></a>
 			</div>
 			<div class="menu">
 			  <a class="toggleMenu" href="#"><img src="images/nav_icon.png" alt="" /></a>
 				<ul class="nav" id="nav">
 				  
-				  <li><a href="http://igorlisboa.esy.es/cadastro.html"> Cadastre-se </a></li>
-				<li><a href="http://igorlisboa.esy.es/login.html"> Entrar </a></li>				  
+				  <li><a href="cadastro.html"> Cadastre-se </a></li>
+				<li><a href="login.html"> Entrar </a></li>				  
 				   <div class="clear"></div>
 			    </ul>
 			</div>							
@@ -99,54 +99,19 @@
 	<div id="envelope">
 	<section class="secao-cadastro">
 	<div class="cadastro">
-	<form method="POST"  >
+	<form method="POST" action="php/salvarUsuario.php">
 	<fieldset id="usuario"> <legend>Cadastro do Usuário</legend>
-	<p><label class="cNome" >Nome:</label><input type="text" name="tNome" id="cNome" size="20" maxlength="30" placeholder="Nome Completo" /> </p>
+	<p><label class="cNome" >Nome:</label><input type="text" name="nome" id="cNome" size="20" maxlength="30" placeholder="Nome Completo" /> </p>
+	<p><label class="cNome" >Login:</label><input type="text" name="login" id="cNome" size="20" maxlength="30" placeholder="login" /> </p>
+	<p> <label class="cSenha" >Senha:</label> <input type="password" name="senha" id="cSenha" size="8" maxlength="8" placeholder="8 Digitos" </p>
 	<p><label class="cCPF" >CPF:</label><input type="text" name="tCPF" id="cCPF" size="9" maxlength="9" placeholder="Seu CPF" /> </p>
     <p> <label class="cSenha" >Senha:</label> <input type="password" name="tSenha" id="cSenha" size="8" maxlength="8" placeholder="8 Digitos" </p>
     <p><label class="cMail" >E-mail:</label><input type="email" name="tMail" id="cMail" size="20" maxlength="40" placeholder="Digite seu email" </p>
-    <p><label class="sexo">Sexo:<br><br /></label>
-        <input type="radio" name="tSexo" id="cMasc"  /> <label for="cMasc" >Masculino</label> 
-        <input type="radio" name="tSexo" id="cFem" /> <label for="cFem" >Feminino</label>
-	
-    <p><label class="cNasc" >Data de Nascimento:</label> <input type="date" name="tNasc"  id="cNasc" /></p>
 	<p><label class="cEndereco" >Endereço:</label><input type="text" name="tEndereco" id="cEndereco" size="50" maxlength="50" placeholder="Seu endereço" /></p>
 	<p><label class="cCidade" >Cidade:</label><input type="text" name="tCidade" id="cCidade" size="20" maxlength="20" placeholder="Sua Cidade" /></p>
     <p><label class="cNum" >Número:</label><input type="number" name="tNum" id="cNum" min="1" max="999" /></p>
-    <p> <label class="cEst" >Estado:</label>
-	<select name="tEst" id="cEst">
-	<optgroup >
-	<option value="AC"> Acre</option>
-	<option value="AL"> Alagoas </option>
-	<option value="AP"> Amapá </option>
-	<option value="AM"> Amazonas </option>
-	<option value="BA"> Bahia </option>
-	<option value="CE"> Ceará </option>
-	<option value="DF"> Distrito Federal </option>
-	<option value="ES"> Espírito Santo </option>
-	<option value="GO"> Goiás </option>
-	<option value="MA"> Maranhão </option>
-	<option value="MT">Mato Grosso </option>
-	<option value="MS"> Mato Grosso do Sul </option>
-	<option value="MG"> Minas Gerais </option>
-	<option value="PA"> Pará </option>
-	<option value="PB"> Paraíba </option>
-	<option value="PR"> Paraná </option>
-	<option value="PE"> Pernambuco </option>
-	<option value="PI"> Piauí </option>
-	<option value="RJ"> Rio de Janeiro </option>
-	<option value="RN"> Rio Grande do Norte </option>
-	<option value="RS"> Rio Grande do Sul </option>
-	<option value="RO"> Rondônia </option>
-	<option value="RR"> Roraima </option>
-	<option value="SC"> Santa Catarina </option>
-	<option value="SP"> São Paulo </option>
-	<option value="SE"> Sergipe </option>
-	<option value="TO"> Tocantins </option>
-	</optgroup>
-	</select>
-	</p>
-	<input type="submit" name="Enviar" value="Dasativado" disabled id="btEnviar"  />
+   
+	<input type="submit" name="Enviar" value="Salvar" id="btEnviar"  />
 	</fieldset>
 	</form>
 	</div>
